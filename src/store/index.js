@@ -4,7 +4,7 @@ const store = createStore({
     state() {
         return {
             user: null,
-            productFilter: null,
+            
             products: [{
                 id: '24ab7b14-f935-44c1-b91b-8598123ea54a',
                 title: 'Headlight Helmet',
@@ -47,13 +47,11 @@ const store = createStore({
         setUser(state,user){
             state.user=user
         },
-        setProductFilter(state,productFilter){
-             state.productFilter=productFilter;
-        },
+        
      },
      getters:{
-        filteredProducts(state){
-            return filterProducts(state.productFilter,state.products);
+        getFilteredProducts(state){
+            return (filter)=> filterProducts(filter,state.products);
         }
      }
 })
